@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+<meta charset="UTF-8">
+<title>ML API</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' typ
+e='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/
+css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='te
+xt/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='style
+sheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="login">
+<h1>Predict future status of the current customers</h1>
+<!-- Main Input For Receiving Query to our ML -->
+<form action="{{ url_for('predict')}}"method="post">
+<input type="text" name="terms_compl" placeholder="terms_compl" required="required"
+/> <!--Taking Input of terms_compl -->
+<input type="text" name="total_rec_prncp" placeholder="total_rec_prncp" required=
+"required" /><!--Input of total_rec_prncp -->
+<input type="text" name="last_credit_pull_d" placeholder="last_credit_pull_d" required="required"
+/> <!-- Input for last_credit_pull_d -->
+<input type="text" name="installment" placeholder="installment" required="required"
+/> <!-- Input for installment -->
+<input type="text" name="funded_amnt" placeholder="funded_amnt" required="required"
+/> <!-- Input for funded_amnt -->
+<input type="text" name="total_rec_int" placeholder="total_rec_int" required="required"
+/> <!-- Input for total_rec_int -->
+<input type="text" name="dti" placeholder="dti" required="required"
+/> <!-- Input for dti -->
+<input type="text" name="total_rec_late_fee" placeholder="total_rec_late_fee" required="required"
+/> <!-- Input for total_rec_late_fee -->
+<input type="text" name="int_rate" placeholder="int_rate" required="required"
+/> <!-- Input for int_rate -->
+<input type="text" name="emp_length" placeholder="emp_length" required="required"
+/> <!-- Input for emp_length -->
+<button type="submit" class="btn btn-primary btn-block btn-large">Predict</butt
+on>
+</form>
+<br>
+<br>
+{{ prediction_text }} <!-- Predicted Value -->
+</div>
+</body>
+</html>
